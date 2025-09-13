@@ -15,7 +15,7 @@ public class Channel implements Subject{
 
     public void uploadVideo(String title){
         // TODO: Notify all subscribers about new video
-        this.notifyObservers("uploadVideo" + title);
+        this.notifyObservers(this.name +"uploaded Video " + title);
     }
 
     @Override
