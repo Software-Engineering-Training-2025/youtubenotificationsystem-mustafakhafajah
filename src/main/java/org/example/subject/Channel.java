@@ -20,12 +20,26 @@ public class Channel implements Subject{
 
     @Override
     public void subscribe(Observer observer) {
+        for (Observer o : subscribers) {
+            if(o == observer){
+                break;
+            }
+        }
         observer.update("Subscribed to "+this.name);
-    }
+        subscribers.add(observer);}
+
 
     @Override
     public void unsubscribe(Observer observer) {
-        observer.update("Unsubscribed from "+this.name);
+        for (Observer o : subscribers) {
+            if(o == observer){
+                observer.update("Unsubscribed from "+this.name);
+                subscribers.remove(observer);
+                break;
+            }
+
+            }
+
     }
 
 
